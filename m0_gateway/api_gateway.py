@@ -1,40 +1,37 @@
+import httpx
 from flask import Flask, request, jsonify
-import requests
 
 
 api_gateway = Flask(__name__)
 
-
-AUTHENTICATION_URL = 'http://localhost:5001'
-CALCULATOR_URL     = 'http://localhost:5002'
-
-
-@api_gateway.route('/api/authenticator/<path:endpoint>', methods=['GET'])
-def proxy_to_authenticator(endpoint):
-    response = requests.request(
-        method = request.method,
-        url = f'{AUTHENTICATION_URL}/authenticator/{endpoint}',
-        headers = {key: value for (key, value) in request.headers if key != 'Host'},
-        data = request.get_data(),
-        cookies = request.cookies,
-        allow_redirects = False
-    )
-
-    return (response.content, response.status_code, response.headers.items())
+SERVICE_MAP = {
+    'authenticator': 'http://localhost:5001',
+    'calculator': 'http://localhost:5002'
+}
 
 
-@api_gateway.route('/api/calculator/<path:endpoint>', methods=['GET'])
-def proxy_to_calculator(endpoint):
-    response = requests.request(
-        method = request.method,
-        url = f'{CALCULATOR_URL}/calculator/{endpoint}',
-        headers = {key: value for (key, value) in request.headers if key != 'Host'},
-        data = request.get_data(),
-        cookies = request.cookies,
-        allow_redirects = False
-    )
+@api_gateway.route('/api/<service>/<path:endpoint>', methods=['GET', 'POST', 'PUT'])
+async def proxy(service, endpoint):
+    base_url = SERVICE_MAP.get(service)
+    if not base_url:
+        return {'error': f'Unknown service: {service}'}, 404
+    
+    target_url = f'{base_url}/{service}/{endpoint}'
 
-    return (response.content, response.status_code, response.headers.items())
+    async with httpx.AsyncClient() as client:
+        try:
+            response = await client.request(
+                method=request.method,
+                url=target_url,
+                headers={key: value for (key, value) in request.headers if key.lower() != 'host'},
+                params=request.args,
+                content=request.get_data(),
+                cookies=request.cookies
+            )
+        except httpx.RequestError as e:
+            return {"error": f'Service unreachable: {str(e)}'}, 502
+        
+    return response.content, response.status_code, dict(response.headers)
 
 
 if __name__ == '__main__':
