@@ -44,7 +44,33 @@ async def register():
 
 @authenticator_app.route('/authenticator/login', methods=['POST'])
 async def login():
-    pass
+    try:
+        data = AuthenticationRequest.model_validate(request.get_json())
+    except ValidationError:
+        return jsonify(AuthenticationResponse(
+            message="JSON validation failed",
+            content=None
+        ).model_dump()), 400
+
+    try:
+        token = await authenticator_service.login(data)
+    except ValueError as e:
+        print(e)
+        return jsonify(AuthenticationResponse(
+            message="Wrong credentials",
+            content=None
+        ).model_dump()), 401
+    except Exception as e:
+        print(e)
+        return jsonify(AuthenticationResponse(
+            message="User not found",
+            content=None
+        ).model_dump()), 404
+
+    return jsonify(AuthenticationResponse(
+        message='Login was successful',
+        content=token
+    ).model_dump()), 200
 
 
 if __name__ == '__main__':

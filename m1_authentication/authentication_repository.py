@@ -2,6 +2,7 @@ import os
 import oracledb
 from pathlib import Path
 from dotenv import load_dotenv
+from authentication_model import AuthenticationModel
 
 oracledb.defaults.fetch_lobs = False
 
@@ -63,4 +64,25 @@ class AuthenticationRepository:
             raise Exception("User already exists") from e
         except oracledb.Error as e:
             await conn.rollback()
+            raise
+
+    async def get_user(self, email):
+        conn = await self._get_connection()
+
+        try:
+            async with conn.cursor() as cursor:
+                await cursor.execute(
+                    """
+                    SELECT id, email, pass FROM users
+                    WHERE email = :p_email
+                    """,
+                    {'p_email': email}
+                )
+
+                row = await cursor.fetchone()
+
+                return AuthenticationModel(id=row[0], email=row[1], password=row[2]) if row else None
+        except oracledb.IntegrityError as e:
+            raise Exception("User already exists") from e
+        except oracledb.Error:
             raise
