@@ -25,7 +25,7 @@ def create_output_model(status_code, message, content, headers):
     )
 
 
-@api_gateway.route('/api/<service>/<path:endpoint>', methods=['GET', 'POST', 'PUT'])
+@api_gateway.route('/api/<service>/<path:endpoint>', methods=['POST', 'PUT'])
 async def proxy(service, endpoint):
     base_url = SERVICE_MAP.get(service)
     if not base_url:
@@ -60,11 +60,16 @@ async def proxy(service, endpoint):
     try:
         content = response.json()
     except ValueError:
-        content = response.text
+        return jsonify(create_output_model(
+            status_code=500,
+            message='Incorrect microservice output',
+            content=None,
+            headers={}
+        ).model_dump()), 500
 
     return jsonify(create_output_model(
         status_code=response.status_code,
-        message='Request processed successfully',
+        message=content.pop('message'),
         content=content,
         headers=response.headers
     ).model_dump()), response.status_code

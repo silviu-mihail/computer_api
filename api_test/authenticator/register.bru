@@ -1,0 +1,18 @@
+meta {
+  name: register
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:5000/api/authenticator/register
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "email": "test@gmail.com",
+    "password": "12345"
+  }
+}
