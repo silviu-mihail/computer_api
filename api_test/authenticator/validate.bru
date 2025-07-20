@@ -1,0 +1,17 @@
+meta {
+  name: validate
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:5001/authenticator/validate
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJ0ZXN0QGdtYWlsLmNvbSIsImV4cCI6MTc1MzAxODc3OCwiaWF0IjoxNzUzMDE1MTc4fQ.NuiceNSbLxyLLPW85fGAEI39qQhRSWKv_IFJOPB-Wao"
+  }
+}

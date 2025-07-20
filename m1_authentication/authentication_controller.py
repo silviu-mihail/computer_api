@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from pydantic import ValidationError
 
 from authentication_service import AuthenticationService
-from dtos import AuthenticationRequest, AuthenticationResponse
+from dtos import AuthenticationRequest, AuthenticationResponse, ValidateTokenRequest, ValidateTokenResponse
 
 authenticator_app = Flask(__name__)
 
@@ -63,6 +63,16 @@ async def login():
     return jsonify(AuthenticationResponse(
         message='Login was successful',
         content=token
+    ).model_dump()), 200
+
+@authenticator_app.route('/authenticator/validate', methods=['POST'])
+async def validate():
+    data = ValidateTokenRequest.model_validate(request.get_json())
+
+    message, status = await authenticator_service.validate(data)
+
+    return jsonify(ValidateTokenResponse(
+        message=message, status=status
     ).model_dump()), 200
 
 if __name__ == '__main__':

@@ -1,6 +1,6 @@
 from hashlib import sha256
 from authentication_repository import AuthenticationRepository
-from jwt_service.jwt_model import create_jwt
+from jwt_service.jwt_model import create_jwt, validate_jwt
 
 class AuthenticationService:
     def __init__(self):
@@ -25,3 +25,16 @@ class AuthenticationService:
             return create_jwt(user_data.id, user_data.email)
         else:
             raise ValueError('The passwords do not match')
+
+    async def validate(self, data):
+        try:
+            jwt_data = validate_jwt(data.token)
+
+            user_data = await self._repository.get_user(jwt_data['email'])
+            if user_data is None:
+                return 'Invalid JWT token', False
+
+            return 'Token is valid', True
+        except Exception as e:
+            print(e)
+            return 'Invalid JWT token', False

@@ -1,5 +1,6 @@
 import httpx
 import os
+import json
 from flask import Flask, request, jsonify
 from response import ResponseModel
 from pathlib import Path
@@ -25,8 +26,40 @@ def create_output_model(status_code, message, content, headers):
     )
 
 
+async def auth_validate(token):
+    if not token:
+        return 'Missing JWT token', False
+
+    if not token.startswith('Bearer '):
+        return 'Invalid JWT format', False
+
+    jwt = token.split(' ')[1]
+
+    async with httpx.AsyncClient() as client:
+        validation_response = await client.request(
+            method='POST',
+            url=os.getenv('VALIDATION_URL'),
+            headers={'Content-Type': 'application/json'},
+            content=json.dumps({'token': jwt}).encode('utf-8')
+        )
+
+    json_format = validation_response.json()
+
+    return json_format['message'], json_format['status']
+
+
 @api_gateway.route('/api/<service>/<path:endpoint>', methods=['POST'])
 async def proxy(service, endpoint):
+    if service == 'calculator':
+        message, status = await auth_validate(request.headers.get('Authorization'))
+        if not status:
+            return jsonify(create_output_model(
+                status_code=401,
+                message=message,
+                content=None,
+                headers={}
+            ).model_dump()), 401
+
     base_url = SERVICE_MAP.get(service)
     if not base_url:
         return jsonify(create_output_model(

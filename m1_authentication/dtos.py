@@ -10,3 +10,12 @@ class AuthenticationRequest(BaseModel):
 class AuthenticationResponse(BaseModel):
     message: str
     content: Any
+
+
+class ValidateTokenRequest(BaseModel):
+    token: str
+
+
+class ValidateTokenResponse(BaseModel):
+    message: str
+    status: bool
