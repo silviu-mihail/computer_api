@@ -1,7 +1,11 @@
-from pydantic import BaseModel, Field
+from sqlalchemy.orm import declarative_base
+from sqlalchemy import Column, Integer, String
 
+Base = declarative_base()
 
-class AuthenticationModel(BaseModel):
-    id: int
-    email: str = Field(pattern=r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
-    password: str = Field(..., max_length=100)
+class User(Base):
+    __tablename__ = 'users'
+
+    id = Column(Integer, primary_key=True, index=True)
+    email = Column(String, unique=True, index=True, nullable=False)
+    password = Column(String, nullable=False)

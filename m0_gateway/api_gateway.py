@@ -25,7 +25,7 @@ def create_output_model(status_code, message, content, headers):
     )
 
 
-@api_gateway.route('/api/<service>/<path:endpoint>', methods=['POST', 'PUT'])
+@api_gateway.route('/api/<service>/<path:endpoint>', methods=['POST'])
 async def proxy(service, endpoint):
     base_url = SERVICE_MAP.get(service)
     if not base_url:

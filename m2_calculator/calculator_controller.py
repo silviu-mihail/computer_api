@@ -4,11 +4,25 @@ from flask import Flask, jsonify
 calculator_app = Flask(__name__)
 
 
-@calculator_app.route('/calculator/test', methods=['GET'])
-def controller_test():
+@calculator_app.route('/calculator/pow', methods=['POST'])
+def pow_operation():
     return jsonify({
         'service': 'Calculator',
-        'data': "Computation done"
+        'message': "Pow operation"
+    }), 200
+
+@calculator_app.route('/calculator/fibonacci', methods=['POST'])
+def fibonacci():
+    return jsonify({
+        'service': 'Calculator',
+        'message': "Fibonacci"
+    }), 200
+
+@calculator_app.route('/calculator/factorial', methods=['POST'])
+def factorial():
+    return jsonify({
+        'service': 'Calculator',
+        'message': "Factorial"
     }), 200
 
 
