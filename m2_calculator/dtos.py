@@ -1,7 +1,4 @@
-from dataclasses import field
-
-from pydantic import BaseModel, validator, field_validator
-from typing import ClassVar
+from pydantic import BaseModel, field_validator
 
 
 class CalculatorResponse(BaseModel):
