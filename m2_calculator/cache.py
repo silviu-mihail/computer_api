@@ -8,7 +8,8 @@ class PowCache:
 
     def to_response(self):
         return CalculatorResponse(
-            message=f"Cached response: pow({self.pow_request.base}, {self.pow_request.exponent})",
+            message=f"Cached response: pow({self.pow_request.base},"
+                    f" {self.pow_request.exponent})",
             result=self.result
         )
 

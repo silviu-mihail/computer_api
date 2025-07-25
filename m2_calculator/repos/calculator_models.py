@@ -3,6 +3,7 @@ from sqlalchemy import Column, Integer, DateTime, func
 
 Base = declarative_base()
 
+
 class PowerOperation(Base):
     __tablename__ = 'power_operations'
 

@@ -5,17 +5,25 @@ from logging.handlers import RotatingFileHandler
 
 
 class RedisLogHandler(logging.Handler):
-    def __init__(self, redis_host="localhost", redis_port=6379, channel="log-stream"):
+    def __init__(self,
+                 redis_host="localhost",
+                 redis_port=6379,
+                 channel="log-stream"):
         super().__init__()
         self.redis = redis.Redis(host=redis_host, port=redis_port, db=0)
         self.channel = channel
 
     def emit(self, record):
         try:
+            if self.formatter:
+                timestamp = self.formatter.formatTime(record)
+            else:
+                timestamp = record.created
+
             log_data = {
                 "level": record.levelname,
                 "message": record.getMessage(),
-                "time": self.formatTime(record),
+                "time": timestamp,
                 "module": record.module,
                 "service": record.name
             }
@@ -39,7 +47,9 @@ def setup_logger(service_name: str, log_file="service.log") -> logging.Logger:
     )
 
     # File log
-    file_handler = RotatingFileHandler(log_file, maxBytes=2_000_000, backupCount=5)
+    file_handler = RotatingFileHandler(log_file,
+                                       maxBytes=2_000_000,
+                                       backupCount=5)
     file_handler.setFormatter(formatter)
     logger.addHandler(file_handler)
 
