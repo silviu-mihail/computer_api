@@ -10,8 +10,8 @@ from calc_logger import logger
 
 calculator_app = Flask(__name__)
 init_telemetry(calculator_app,
-               service_name='authenticator',
-               trace_file='authenticator_traces.jsonl')
+               service_name='calculator',
+               trace_file='calculator_traces.jsonl')
 calculator_service = CalculatorService()
 
 
@@ -115,6 +115,6 @@ async def factorial():
 
 
 if __name__ == '__main__':
-    logger.inf('Started service calculator')
+    logger.info('Started service calculator')
 
     calculator_app.run(port=5002)

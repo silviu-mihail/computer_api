@@ -1,0 +1,17 @@
+{"service": "gateway", "level": "INFO", "message": "Started service API Gateway", "time": "2025-07-29 13:32:10,929", "module": "api_gateway"}
+{"service": "gateway", "level": "INFO", "message": "Started service API Gateway", "time": "2025-07-29 13:32:19,070", "module": "api_gateway"}
+{"service": "gateway", "level": "INFO", "message": "API Gateway called for service: calculator", "time": "2025-07-29 13:32:41,393", "module": "api_gateway"}
+{"service": "gateway", "level": "INFO", "message": "Checking authorization header", "time": "2025-07-29 13:32:41,394", "module": "api_gateway"}
+{"service": "gateway", "level": "INFO", "message": "Calling authorization service to validate the JWT token", "time": "2025-07-29 13:32:41,947", "module": "api_gateway"}
+{"service": "gateway", "level": "INFO", "message": "Calling endpoint: http://localhost:5002/calculator/pow", "time": "2025-07-29 13:32:42,253", "module": "api_gateway"}
+{"service": "gateway", "level": "INFO", "message": "Endpoint call ran successfully", "time": "2025-07-29 13:32:43,031", "module": "api_gateway"}
+{"service": "gateway", "level": "INFO", "message": "API Gateway called for service: calculator", "time": "2025-07-29 13:32:48,319", "module": "api_gateway"}
+{"service": "gateway", "level": "INFO", "message": "Checking authorization header", "time": "2025-07-29 13:32:48,320", "module": "api_gateway"}
+{"service": "gateway", "level": "INFO", "message": "Calling authorization service to validate the JWT token", "time": "2025-07-29 13:32:48,713", "module": "api_gateway"}
+{"service": "gateway", "level": "INFO", "message": "Calling endpoint: http://localhost:5002/calculator/fibonacci", "time": "2025-07-29 13:32:48,981", "module": "api_gateway"}
+{"service": "gateway", "level": "INFO", "message": "Endpoint call ran successfully", "time": "2025-07-29 13:32:49,679", "module": "api_gateway"}
+{"service": "gateway", "level": "INFO", "message": "API Gateway called for service: calculator", "time": "2025-07-29 13:32:53,254", "module": "api_gateway"}
+{"service": "gateway", "level": "INFO", "message": "Checking authorization header", "time": "2025-07-29 13:32:53,255", "module": "api_gateway"}
+{"service": "gateway", "level": "INFO", "message": "Calling authorization service to validate the JWT token", "time": "2025-07-29 13:32:53,710", "module": "api_gateway"}
+{"service": "gateway", "level": "INFO", "message": "Calling endpoint: http://localhost:5002/calculator/factorial", "time": "2025-07-29 13:32:53,991", "module": "api_gateway"}
+{"service": "gateway", "level": "INFO", "message": "Endpoint call ran successfully", "time": "2025-07-29 13:32:54,688", "module": "api_gateway"}

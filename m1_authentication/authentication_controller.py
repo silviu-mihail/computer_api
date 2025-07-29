@@ -56,7 +56,7 @@ async def register():
             content=None
         ).model_dump()), 409
 
-    logger.inf('Register operation ran successfully')
+    logger.info('Register operation ran successfully')
 
     return jsonify(AuthenticationResponse(
         message='Account created successfully',
@@ -113,7 +113,7 @@ async def validate():
 
     data = ValidateTokenRequest.model_validate(request.get_json())
 
-    logger.inf('Validating JWT token')
+    logger.info('Validating JWT token')
 
     message, status = await authenticator_service.validate(data)
 

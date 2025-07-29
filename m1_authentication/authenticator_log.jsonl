@@ -1,0 +1,38 @@
+{"service": "authenticator", "level": "INFO", "message": "Started service authenticator", "time": "2025-07-29 13:32:21,596", "module": "authentication_controller"}
+{"service": "authenticator", "level": "INFO", "message": "Started service authenticator", "time": "2025-07-29 13:32:21,596", "module": "authentication_controller"}
+{"service": "authenticator", "level": "INFO", "message": "JWT validation endpoint has been called", "time": "2025-07-29 13:32:42,228", "module": "authentication_controller"}
+{"service": "authenticator", "level": "INFO", "message": "JWT validation endpoint has been called", "time": "2025-07-29 13:32:42,228", "module": "authentication_controller"}
+{"service": "authenticator", "level": "INFO", "message": "Validating JWT token", "time": "2025-07-29 13:32:42,232", "module": "authentication_controller"}
+{"service": "authenticator", "level": "INFO", "message": "Validating JWT token", "time": "2025-07-29 13:32:42,232", "module": "authentication_controller"}
+{"service": "authenticator", "level": "INFO", "message": "Token validation service called", "time": "2025-07-29 13:32:42,234", "module": "authentication_service"}
+{"service": "authenticator", "level": "INFO", "message": "Token validation service called", "time": "2025-07-29 13:32:42,234", "module": "authentication_service"}
+{"service": "authenticator", "level": "INFO", "message": "Validating JWT token", "time": "2025-07-29 13:32:42,236", "module": "jwt_model"}
+{"service": "authenticator", "level": "INFO", "message": "Validating JWT token", "time": "2025-07-29 13:32:42,236", "module": "jwt_model"}
+{"service": "authenticator", "level": "INFO", "message": "Trying to fetch an user from the database", "time": "2025-07-29 13:32:42,238", "module": "authentication_repository"}
+{"service": "authenticator", "level": "INFO", "message": "Trying to fetch an user from the database", "time": "2025-07-29 13:32:42,238", "module": "authentication_repository"}
+{"service": "authenticator", "level": "INFO", "message": "Validation operation ran successfully", "time": "2025-07-29 13:32:42,248", "module": "authentication_controller"}
+{"service": "authenticator", "level": "INFO", "message": "Validation operation ran successfully", "time": "2025-07-29 13:32:42,248", "module": "authentication_controller"}
+{"service": "authenticator", "level": "INFO", "message": "JWT validation endpoint has been called", "time": "2025-07-29 13:32:48,970", "module": "authentication_controller"}
+{"service": "authenticator", "level": "INFO", "message": "JWT validation endpoint has been called", "time": "2025-07-29 13:32:48,970", "module": "authentication_controller"}
+{"service": "authenticator", "level": "INFO", "message": "Validating JWT token", "time": "2025-07-29 13:32:48,972", "module": "authentication_controller"}
+{"service": "authenticator", "level": "INFO", "message": "Validating JWT token", "time": "2025-07-29 13:32:48,972", "module": "authentication_controller"}
+{"service": "authenticator", "level": "INFO", "message": "Token validation service called", "time": "2025-07-29 13:32:48,973", "module": "authentication_service"}
+{"service": "authenticator", "level": "INFO", "message": "Token validation service called", "time": "2025-07-29 13:32:48,973", "module": "authentication_service"}
+{"service": "authenticator", "level": "INFO", "message": "Validating JWT token", "time": "2025-07-29 13:32:48,974", "module": "jwt_model"}
+{"service": "authenticator", "level": "INFO", "message": "Validating JWT token", "time": "2025-07-29 13:32:48,974", "module": "jwt_model"}
+{"service": "authenticator", "level": "INFO", "message": "Trying to fetch an user from the database", "time": "2025-07-29 13:32:48,975", "module": "authentication_repository"}
+{"service": "authenticator", "level": "INFO", "message": "Trying to fetch an user from the database", "time": "2025-07-29 13:32:48,975", "module": "authentication_repository"}
+{"service": "authenticator", "level": "INFO", "message": "Validation operation ran successfully", "time": "2025-07-29 13:32:48,978", "module": "authentication_controller"}
+{"service": "authenticator", "level": "INFO", "message": "Validation operation ran successfully", "time": "2025-07-29 13:32:48,978", "module": "authentication_controller"}
+{"service": "authenticator", "level": "INFO", "message": "JWT validation endpoint has been called", "time": "2025-07-29 13:32:53,978", "module": "authentication_controller"}
+{"service": "authenticator", "level": "INFO", "message": "JWT validation endpoint has been called", "time": "2025-07-29 13:32:53,978", "module": "authentication_controller"}
+{"service": "authenticator", "level": "INFO", "message": "Validating JWT token", "time": "2025-07-29 13:32:53,980", "module": "authentication_controller"}
+{"service": "authenticator", "level": "INFO", "message": "Validating JWT token", "time": "2025-07-29 13:32:53,980", "module": "authentication_controller"}
+{"service": "authenticator", "level": "INFO", "message": "Token validation service called", "time": "2025-07-29 13:32:53,981", "module": "authentication_service"}
+{"service": "authenticator", "level": "INFO", "message": "Token validation service called", "time": "2025-07-29 13:32:53,981", "module": "authentication_service"}
+{"service": "authenticator", "level": "INFO", "message": "Validating JWT token", "time": "2025-07-29 13:32:53,983", "module": "jwt_model"}
+{"service": "authenticator", "level": "INFO", "message": "Validating JWT token", "time": "2025-07-29 13:32:53,983", "module": "jwt_model"}
+{"service": "authenticator", "level": "INFO", "message": "Trying to fetch an user from the database", "time": "2025-07-29 13:32:53,984", "module": "authentication_repository"}
+{"service": "authenticator", "level": "INFO", "message": "Trying to fetch an user from the database", "time": "2025-07-29 13:32:53,984", "module": "authentication_repository"}
+{"service": "authenticator", "level": "INFO", "message": "Validation operation ran successfully", "time": "2025-07-29 13:32:53,988", "module": "authentication_controller"}
+{"service": "authenticator", "level": "INFO", "message": "Validation operation ran successfully", "time": "2025-07-29 13:32:53,988", "module": "authentication_controller"}
