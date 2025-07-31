@@ -13,7 +13,7 @@ api_gateway = Flask(__name__)
 init_telemetry(api_gateway,
                service_name='gateway',
                trace_file='gateway_traces.jsonl')
-logger = setup_logger(service_name='gateway', log_file='gateway_log.jsonl')
+logger = setup_logger(service_name='gateway')
 
 
 env_path = Path(__file__).parent / '.env'

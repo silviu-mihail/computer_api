@@ -1,24 +1,21 @@
 import logging
 import redis
 import json
-from logging.handlers import RotatingFileHandler
+from datetime import datetime, UTC
 
 
-class RedisLogHandler(logging.Handler):
+class RedisStreamLogHandler(logging.Handler):
     def __init__(self,
+                 stream_name: str,
                  redis_host="localhost",
-                 redis_port=6379,
-                 channel="log-stream"):
+                 redis_port=6379):
         super().__init__()
         self.redis = redis.Redis(host=redis_host, port=redis_port, db=0)
-        self.channel = channel
+        self.stream_name = stream_name
 
     def emit(self, record):
         try:
-            if self.formatter:
-                timestamp = self.formatter.formatTime(record)
-            else:
-                timestamp = record.created
+            timestamp = self.formatter.formatTime(record) if self.formatter else datetime.now(UTC)
 
             log_data = {
                 "level": record.levelname,
@@ -27,14 +24,21 @@ class RedisLogHandler(logging.Handler):
                 "module": record.module,
                 "service": record.name
             }
-            self.redis.publish(self.channel, json.dumps(log_data))
+            self.redis.xadd(self.stream_name, log_data)
         except Exception as e:
             print(f"[!] Redis log publish failed: {e}")
 
 
-def setup_logger(service_name: str, log_file="service.log") -> logging.Logger:
+def setup_logger(
+        service_name: str,
+        redis_host='localhost',
+        redis_port=6379
+) -> logging.Logger:
     logger = logging.getLogger(service_name)
     logger.setLevel(logging.DEBUG)
+
+    if logger.handlers:
+        return logger
 
     formatter = logging.Formatter(
         json.dumps({
@@ -46,15 +50,12 @@ def setup_logger(service_name: str, log_file="service.log") -> logging.Logger:
         })
     )
 
-    # File log
-    file_handler = RotatingFileHandler(log_file,
-                                       maxBytes=2_000_000,
-                                       backupCount=5)
-    file_handler.setFormatter(formatter)
-    logger.addHandler(file_handler)
-
-    # Redis log
-    redis_handler = RedisLogHandler()
+    stream_name = f'log-{service_name}'
+    redis_handler = RedisStreamLogHandler(
+        stream_name,
+        redis_host,
+        redis_port
+    )
     redis_handler.setFormatter(formatter)
     logger.addHandler(redis_handler)
 

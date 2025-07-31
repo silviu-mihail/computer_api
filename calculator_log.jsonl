@@ -1,0 +1,19 @@
+{"level": "INFO", "message": "Started service calculator", "time": "2025-07-31 09:54:52,127", "module": "calculator_controller", "service": "calculator"}
+{"level": "INFO", "message": "Pow endpoint has been called", "time": "2025-07-31 09:57:41,036", "module": "calculator_controller", "service": "calculator"}
+{"level": "INFO", "message": "Validating JSON request", "time": "2025-07-31 09:57:41,037", "module": "calculator_controller", "service": "calculator"}
+{"level": "INFO", "message": "Pow service called", "time": "2025-07-31 09:57:41,038", "module": "calculator_service", "service": "calculator"}
+{"level": "INFO", "message": "Fetching data from the database - pow", "time": "2025-07-31 09:57:41,039", "module": "calculator_repos", "service": "calculator"}
+{"level": "INFO", "message": "The result of the pow operation was found in the database", "time": "2025-07-31 09:57:41,051", "module": "calculator_service", "service": "calculator"}
+{"level": "INFO", "message": "Endpoint pow ran successfully", "time": "2025-07-31 09:57:41,051", "module": "calculator_controller", "service": "calculator"}
+{"level": "INFO", "message": "Fibonacci endpoint has been called", "time": "2025-07-31 09:57:59,774", "module": "calculator_controller", "service": "calculator"}
+{"level": "INFO", "message": "Validating JSON request", "time": "2025-07-31 09:57:59,776", "module": "calculator_controller", "service": "calculator"}
+{"level": "INFO", "message": "Fibonacci service called", "time": "2025-07-31 09:57:59,777", "module": "calculator_service", "service": "calculator"}
+{"level": "INFO", "message": "Fetching data from the database - fibonacci", "time": "2025-07-31 09:57:59,778", "module": "calculator_repos", "service": "calculator"}
+{"level": "INFO", "message": "The result of the fibonacci operation was found in the database", "time": "2025-07-31 09:57:59,787", "module": "calculator_service", "service": "calculator"}
+{"level": "INFO", "message": "Endpoint fibonacci ran successfully", "time": "2025-07-31 09:57:59,788", "module": "calculator_controller", "service": "calculator"}
+{"level": "INFO", "message": "Factorial endpoint has been called", "time": "2025-07-31 09:58:21,258", "module": "calculator_controller", "service": "calculator"}
+{"level": "INFO", "message": "Validating JSON request", "time": "2025-07-31 09:58:21,259", "module": "calculator_controller", "service": "calculator"}
+{"level": "INFO", "message": "Factorial service called", "time": "2025-07-31 09:58:21,260", "module": "calculator_service", "service": "calculator"}
+{"level": "INFO", "message": "Fetching data from the database - factorial", "time": "2025-07-31 09:58:21,261", "module": "calculator_repos", "service": "calculator"}
+{"level": "INFO", "message": "The result of the factorial operation was found in the database", "time": "2025-07-31 09:58:21,264", "module": "calculator_service", "service": "calculator"}
+{"level": "INFO", "message": "Endpoint factorial ran successfully", "time": "2025-07-31 09:58:21,265", "module": "calculator_controller", "service": "calculator"}

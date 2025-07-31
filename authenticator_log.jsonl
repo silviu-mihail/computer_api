@@ -1,0 +1,33 @@
+{"level": "INFO", "message": "Started service authenticator", "time": "2025-07-31 09:54:47,803", "module": "authentication_controller", "service": "authenticator"}
+{"level": "INFO", "message": "Register endpoint has been called", "time": "2025-07-31 09:54:58,195", "module": "authentication_controller", "service": "authenticator"}
+{"level": "INFO", "message": "Validating register request JSON", "time": "2025-07-31 09:54:58,196", "module": "authentication_controller", "service": "authenticator"}
+{"level": "INFO", "message": "Calling the registration service", "time": "2025-07-31 09:54:58,197", "module": "authentication_controller", "service": "authenticator"}
+{"level": "INFO", "message": "Register service called", "time": "2025-07-31 09:54:58,197", "module": "authentication_service", "service": "authenticator"}
+{"level": "INFO", "message": "Trying to insert an user into the database", "time": "2025-07-31 09:54:58,198", "module": "authentication_repository", "service": "authenticator"}
+{"level": "INFO", "message": "Register operation ran successfully", "time": "2025-07-31 09:54:58,210", "module": "authentication_controller", "service": "authenticator"}
+{"level": "INFO", "message": "Login endpoint has been called", "time": "2025-07-31 09:55:07,014", "module": "authentication_controller", "service": "authenticator"}
+{"level": "INFO", "message": "Validating login request JSON", "time": "2025-07-31 09:55:07,015", "module": "authentication_controller", "service": "authenticator"}
+{"level": "INFO", "message": "Calling the login service", "time": "2025-07-31 09:55:07,016", "module": "authentication_controller", "service": "authenticator"}
+{"level": "INFO", "message": "Login service called", "time": "2025-07-31 09:55:07,017", "module": "authentication_service", "service": "authenticator"}
+{"level": "INFO", "message": "Trying to fetch an user from the database", "time": "2025-07-31 09:55:07,017", "module": "authentication_repository", "service": "authenticator"}
+{"level": "INFO", "message": "Creating the JWT token", "time": "2025-07-31 09:55:07,023", "module": "authentication_service", "service": "authenticator"}
+{"level": "INFO", "message": "Creating JWT token", "time": "2025-07-31 09:55:07,023", "module": "jwt_model", "service": "authenticator"}
+{"level": "INFO", "message": "Login operation ran successfully", "time": "2025-07-31 09:55:07,024", "module": "authentication_controller", "service": "authenticator"}
+{"level": "INFO", "message": "JWT validation endpoint has been called", "time": "2025-07-31 09:57:40,375", "module": "authentication_controller", "service": "authenticator"}
+{"level": "INFO", "message": "Validating JWT token", "time": "2025-07-31 09:57:40,376", "module": "authentication_controller", "service": "authenticator"}
+{"level": "INFO", "message": "Token validation service called", "time": "2025-07-31 09:57:40,376", "module": "authentication_service", "service": "authenticator"}
+{"level": "INFO", "message": "Validating JWT token", "time": "2025-07-31 09:57:40,377", "module": "jwt_model", "service": "authenticator"}
+{"level": "INFO", "message": "Trying to fetch an user from the database", "time": "2025-07-31 09:57:40,378", "module": "authentication_repository", "service": "authenticator"}
+{"level": "INFO", "message": "Validation operation ran successfully", "time": "2025-07-31 09:57:40,381", "module": "authentication_controller", "service": "authenticator"}
+{"level": "INFO", "message": "JWT validation endpoint has been called", "time": "2025-07-31 09:57:59,167", "module": "authentication_controller", "service": "authenticator"}
+{"level": "INFO", "message": "Validating JWT token", "time": "2025-07-31 09:57:59,168", "module": "authentication_controller", "service": "authenticator"}
+{"level": "INFO", "message": "Token validation service called", "time": "2025-07-31 09:57:59,169", "module": "authentication_service", "service": "authenticator"}
+{"level": "INFO", "message": "Validating JWT token", "time": "2025-07-31 09:57:59,170", "module": "jwt_model", "service": "authenticator"}
+{"level": "INFO", "message": "Trying to fetch an user from the database", "time": "2025-07-31 09:57:59,171", "module": "authentication_repository", "service": "authenticator"}
+{"level": "INFO", "message": "Validation operation ran successfully", "time": "2025-07-31 09:57:59,174", "module": "authentication_controller", "service": "authenticator"}
+{"level": "INFO", "message": "JWT validation endpoint has been called", "time": "2025-07-31 09:58:20,653", "module": "authentication_controller", "service": "authenticator"}
+{"level": "INFO", "message": "Validating JWT token", "time": "2025-07-31 09:58:20,655", "module": "authentication_controller", "service": "authenticator"}
+{"level": "INFO", "message": "Token validation service called", "time": "2025-07-31 09:58:20,656", "module": "authentication_service", "service": "authenticator"}
+{"level": "INFO", "message": "Validating JWT token", "time": "2025-07-31 09:58:20,657", "module": "jwt_model", "service": "authenticator"}
+{"level": "INFO", "message": "Trying to fetch an user from the database", "time": "2025-07-31 09:58:20,658", "module": "authentication_repository", "service": "authenticator"}
+{"level": "INFO", "message": "Validation operation ran successfully", "time": "2025-07-31 09:58:20,662", "module": "authentication_controller", "service": "authenticator"}
