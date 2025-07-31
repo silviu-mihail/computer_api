@@ -22,7 +22,8 @@ def start_service_log_worker(
         if 'BUSYGROUP' not in str(e):
             raise
 
-    print(f'[*] Worker started for service: {service_name}, writing to: {log_file}')
+    print(f'[*] Worker started for service: {service_name}, '
+          f'writing to: {log_file}')
 
     while True:
         try:
@@ -36,7 +37,8 @@ def start_service_log_worker(
 
             for stream, messages in entries:
                 for msg_id, data in messages:
-                    decoded_data = {k.decode(): v.decode() for k, v in data.items()}
+                    decoded_data = {k.decode(): v.decode()
+                                    for k, v in data.items()}
 
                     with open(log_file, 'a') as file:
                         file.write(json.dumps(decoded_data) + '\n')

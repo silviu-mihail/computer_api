@@ -15,7 +15,8 @@ class RedisStreamLogHandler(logging.Handler):
 
     def emit(self, record):
         try:
-            timestamp = self.formatter.formatTime(record) if self.formatter else datetime.now(UTC)
+            timestamp = self.formatter.formatTime(record) \
+                if self.formatter else datetime.now(UTC)
 
             log_data = {
                 "level": record.levelname,
